@@ -68,11 +68,11 @@ const App: React.FC = () => {
     };
 
     const hardDrop = () => {
-      let tempY = 0;
-      while(!checkCollision(player, board, {x: 0, y: tempY})) {
-        tempY++;
+      let dropDistance = 0;
+      while(!checkCollision(player, board, {x: 0, y: dropDistance + 1})) {
+        dropDistance++;
       }
-      updatePlayerPos({ x: 0, y: tempY - 1, collided: true });
+      updatePlayerPos({ x: 0, y: dropDistance, collided: true });
     }
 
     const move = ({ keyCode, repeat }: { keyCode: number, repeat: boolean }): void => {
