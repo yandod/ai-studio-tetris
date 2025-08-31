@@ -11,13 +11,15 @@ This contains everything you need to run your app locally.
 
 View your app in AI Studio: https://ai.studio/apps/drive/1Ovakdj--FbJXCJbSZU7_rpwJOvsGQcRN
 
-## Run Locally
+## What is this?
 
-**Prerequisites:**  Node.js
+Google AI StudioのBuildの機能で作成したテトリスです。Github Pagesでホストできるようにする変更を指示しましたが、かなり紆余曲折がありました。作業の過程でわかった制約事項があります。
+
+- Google AI Studioからは連携先のgithubリポジトリの中身は参照できない
+- .githubの中身、package-lock.json、READMEなどのファイルはGoogle AI StudioのIDEからは参照できず常に削除される
+- IDEにはREADMEが現れないが、連携時に毎回デフォルトの内容で上書きされる
+- githubのリポジトリに直接行われた変更がIDEには反映されない
+
+上記の仕様から、Github Pagesの設定などを行っていこうAI Studioとの矛盾に苦しみました。継続的にAI Studioで開発をしながらgithub pagesへ反映するにはトリッキーなステップが必要そうです。
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
