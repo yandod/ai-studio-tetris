@@ -1,4 +1,3 @@
-
 import { useState, useCallback } from 'react';
 // Fix: Import BOARD_WIDTH from constants file where it is exported.
 import { TETROMINOS, randomTetromino, BOARD_WIDTH } from '../game/constants';
@@ -43,13 +42,13 @@ export const usePlayer = () => {
         setPlayer(clonedPlayer);
     };
 
-    const updatePlayerPos = ({ x, y, collided }: { x: number; y: number; collided: boolean; }) => {
+    const updatePlayerPos = useCallback(({ x, y, collided }: { x: number; y: number; collided: boolean; }) => {
         setPlayer(prev => ({
             ...prev,
-            pos: { x: (prev.pos.x += x), y: (prev.pos.y += y) },
+            pos: { x: prev.pos.x + x, y: prev.pos.y + y },
             collided,
         }));
-    };
+    }, []);
 
     const resetPlayer = useCallback(() => {
         // Fix: Call randomTetromino once and use the result for both player state and nextTetromino state.

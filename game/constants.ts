@@ -1,11 +1,11 @@
-
 // Fix: Import TETROMINO type to use it as a return type for randomTetromino.
-import type { TETROMINOS, TETROMINO } from '../types';
+// Fix: Rename the imported TETROMINOS type to avoid a name conflict with the exported TETROMINOS constant, which caused a merged declaration error.
+import type { TETROMINOS as TetrominosType, TETROMINO } from '../types';
 
 export const BOARD_WIDTH = 10;
 export const BOARD_HEIGHT = 20;
 
-export const TETROMINOS: TETROMINOS = {
+export const TETROMINOS: TetrominosType = {
   // Fix: Add borderColor to conform to the TETROMINO type.
   '0': { shape: [[0]], color: 'bg-transparent', borderColor: '' },
   I: {
